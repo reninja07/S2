@@ -83,13 +83,14 @@
     {
       question: "Como eu me sinto quandp você está trsite?",
       answers: ["eu tbm fico triste, eu noto que tu tá estranha, mas tu não diz o que é e, as vezes, nem quer admitir que ta mal. Eu não vou ficar tranquilo enquanto tu não estiver bem, mesmo que tu diga que não precise da minha ajuda eu quero te ajudar, pq eu iria ficar quieto e dboa com tu triste? Eu posso não poder resolver o problema, mas posso te ajudar a ficar melhor, eu só te quero bem. Posso não ser útil pra tal coisa ou outra, mas eu quero te ajudar, se eu não te ajudar ou pelo menos querer, como vou dizer que te amo de vdd? Não tem como eu ficar tranquila com tu chorando, vc ficria tranquila se eu dissesse que to chorando? Eu não fico, eu vou precisar da sua ajuda, não sou um ser perfeito que consegue quealizar tudo sozinho eu vou querer e precisar da sua ajuda, seja  pra quando estiver triste, com raiva, confuso, perdido, sem saber oq fazer entre outras coisas que vão além do emocional. Pq você não consegue aceitar a minha ajuda?"
-      , "Se tu disser que ta tudo bem ent n tem com oq se preocupar, afinal eu n consigo notar que tu ta triste só pela suas mensagens ou jeito de falar. Você não precisa de minha ajuda mesmo, pq vou me esforçar pra tentar te ajudar? Se tu nunca vai precisar da minha ajuda é pq nas vezes que eu achei que tinha te ajudado na vdd não tinha ajudado em nada e sou inútil, oq eu achava que conseguia fazer direito enquanto tentava ser a pessoa mais carinhosa e amorosa que eu poderia ser na vdd n foram nada. Parece que é melhor que eu desista de tentar te ajudar, já que você mesma disse \" eu n preciso da sua ajuda nunca vou precisar entendeu?\""],
+      , "Se tu disser que ta tudo bem ent n tem com oq se preocupar"],
       correct: "eu tbm fico triste, eu noto que tu tá estranha, mas tu não diz o que é e, as vezes, nem quer admitir que ta mal. Eu não vou ficar tranquilo enquanto tu não estiver bem, mesmo que tu diga que não precise da minha ajuda eu quero te ajudar, pq eu iria ficar quieto e dboa com tu triste? Eu posso não poder resolver o problema, mas posso te ajudar a ficar melhor, eu só te quero bem. Posso não ser útil pra tal coisa ou outra, mas eu quero te ajudar, se eu não te ajudar ou pelo menos querer, como vou dizer que te amo de vdd? Não tem como eu ficar tranquila com tu chorando, vc ficria tranquila se eu dissesse que to chorando? Eu não fico, eu vou precisar da sua ajuda, não sou um ser perfeito que consegue quealizar tudo sozinho eu vou querer e precisar da sua ajuda, seja  pra quando estiver triste, com raiva, confuso, perdido, sem saber oq fazer entre outras coisas que vão além do emocional. Pq você não consegue aceitar a minha ajuda?"
     },
     {
       question: "O meu resumo do meu amor por você, qual a certa?",
-      answers: ["PHP", "Python"],
-      correct: "JavaScript"
+      answers: ["te amo um cadinho", 
+      "Meu amor por vc é mto grande, tu nem faz ideia. Tanta coisa que eu nunca tive coragem de fazer, criei essa coragem por sua causa. Nunca pensei que faria tantas coisas,(tem coisas que nunca esperei que fosse fazer) e sabe, queria passar essas férias com vc aqui em casa comigo, acordar, fazer minhas coisas e passar o reesto do dia contigo, seria mto legal e todos os dias seriam divertidos. Senti sua falta durante essas férias, mas pude sair bastante com vc, oq já foi um avanço do ano passado. você é algué mto especial e sempre vou afirmar isso. A loteria tem uma chance de  1 em 50.063.860(acabei de pesquisar) e por isso digo com toda a certeza... Você foi minha loteria do amor"],
+      correct: "Meu amor por vc é mto grande, tu nem faz ideia. Tanta coisa que eu nunca tive coragem de fazer, criei essa coragem por sua causa. Nunca pensei que faria tantas coisas,(tem coisas que nunca esperei que fosse fazer) e sabe, queria passar essas férias com vc aqui em casa comigo, acordar, fazer minhas coisas e passar o reesto do dia contigo, seria mto legal e todos os dias seriam divertidos. Senti sua falta durante essas férias, mas pude sair bastante com vc, oq já foi um avanço do ano passado. você é algué mto especial e sempre vou afirmar isso. A loteria tem uma chance de  1 em 50.063.860(acabei de pesquisar) e por isso digo com toda a certeza... Você foi minha loteria do amor"
     }
   ];
 
@@ -141,7 +142,7 @@
       if (current < questions.length) {
         showQuestion(current);
       } else {
-        questionEl.textContent = `Você acertou ${score} de ${questions.length} perguntas!`;
+        questionEl.textContent = `Você acertou ${score} de ${questions.length} do quanto te amo!`;
         answersEl.innerHTML = "";
       }
       quiz.classList.remove('fade-out');
