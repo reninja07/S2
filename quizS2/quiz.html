@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz com Fade</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .question {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .answers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .answers button {
+      flex: 1 1 calc(50% - 1rem);
+      padding: 0.7rem 1rem;
+      min-width: 120px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background: transparent;
+      color: black;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: .5s;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+
+    .correct {
+      border: 2px solid green !important; 
+      color: green !important;
+      background-color: #eaffea;
+      font-weight: bold;
+      
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz">
+  <div class="question" id="question"></div>
+  <div class="answers" id="answers"></div>
+</div>
+
+<script>
+  const questions = [
+    {
+      question: "O que eu senti nessas férias sem você?",
+      answers: ["Não senti nada demais, foi um mês padrão, eu podia conversar contigo pelo whastsapp mesmo, além de ter saído contigo então saudade não foi necessária.",
+       `Então, esse mês eu pude sair contigo, conversar todo dia. Adoro conversar contigo pelo whatsapp nos sempre conversamos coisas diveritdas, sapcagens \u{1F60F}, tu me mandando vídeos direto (se parecer que não gosto é o contrário, eu amo ver os vídeos que tu me manda), mas nada supera passar o dia com você, ver seu sorriso e ouvir sua risada, são momentos pequenos que adoro passar contigo presencialmente, você é muito engraçada e eu amo isso. Quando tu mandava fotos era tão bom pq eu via seu rosto, mesmo que tu tivesse mandado foto no dia eu sempre via como se fizesse mto tempo. Senti falta de te ver cheirar, tocar e sempre vai ser assim enquanto estivermos juntos e não pudermos nos ver e fico feliz que poderei te ver pelo dia todo dnv`],
+      correct: "Então, esse mês eu pude sair contigo, conversar todo dia. Adoro conversar contigo pelo whatsapp nos sempre conversamos coisas diveritdas, sapcagens \u{1F60F}, tu me mandando vídeos direto (se parecer que não gosto é o contrário, eu amo ver os vídeos que tu me manda), mas nada supera passar o dia com você, ver seu sorriso e ouvir sua risada, são momentos pequenos que adoro passar contigo presencialmente, você é muito engraçada e eu amo isso. Quando tu mandava fotos era tão bom pq eu via seu rosto, mesmo que tu tivesse mandado foto no dia eu sempre via como se fizesse mto tempo. Senti falta de te ver cheirar, tocar e sempre vai ser assim enquanto estivermos juntos e não pudermos nos ver e fico feliz que poderei te ver pelo dia todo dnv"
+    },
+    {
+      question: "Como eu me sinto quandp você está trsite?",
+      answers: ["eu tbm fico triste, eu noto que tu tá estranha, mas tu não diz o que é e, as vezes, nem quer admitir que ta mal. Eu não vou ficar tranquilo enquanto tu não estiver bem, mesmo que tu diga que não precise da minha ajuda eu quero te ajudar, pq eu iria ficar quieto e dboa com tu triste? Eu posso não poder resolver o problema, mas posso te ajudar a ficar melhor, eu só te quero bem. Posso não ser útil pra tal coisa ou outra, mas eu quero te ajudar, se eu não te ajudar ou pelo menos querer, como vou dizer que te amo de vdd? Não tem como eu ficar tranquila com tu chorando, vc ficria tranquila se eu dissesse que to chorando? Eu não fico, eu vou precisar da sua ajuda, não sou um ser perfeito que consegue quealizar tudo sozinho eu vou querer e precisar da sua ajuda, seja  pra quando estiver triste, com raiva, confuso, perdido, sem saber oq fazer entre outras coisas que vão além do emocional. Pq você não consegue aceitar a minha ajuda?"
+      , "Se tu disser que ta tudo bem ent n tem com oq se preocupar, afinal eu n consigo notar que tu ta triste só pela suas mensagens ou jeito de falar. Você não precisa de minha ajuda mesmo, pq vou me esforçar pra tentar te ajudar? Se tu nunca vai precisar da minha ajuda é pq nas vezes que eu achei que tinha te ajudado na vdd não tinha ajudado em nada e sou inútil, oq eu achava que conseguia fazer direito enquanto tentava ser a pessoa mais carinhosa e amorosa que eu poderia ser na vdd n foram nada. Parece que é melhor que eu desista de tentar te ajudar, já que você mesma disse \" eu n preciso da sua ajuda nunca vou precisar entendeu?\""],
+      correct: "eu tbm fico triste, eu noto que tu tá estranha, mas tu não diz o que é e, as vezes, nem quer admitir que ta mal. Eu não vou ficar tranquilo enquanto tu não estiver bem, mesmo que tu diga que não precise da minha ajuda eu quero te ajudar, pq eu iria ficar quieto e dboa com tu triste? Eu posso não poder resolver o problema, mas posso te ajudar a ficar melhor, eu só te quero bem. Posso não ser útil pra tal coisa ou outra, mas eu quero te ajudar, se eu não te ajudar ou pelo menos querer, como vou dizer que te amo de vdd? Não tem como eu ficar tranquila com tu chorando, vc ficria tranquila se eu dissesse que to chorando? Eu não fico, eu vou precisar da sua ajuda, não sou um ser perfeito que consegue quealizar tudo sozinho eu vou querer e precisar da sua ajuda, seja  pra quando estiver triste, com raiva, confuso, perdido, sem saber oq fazer entre outras coisas que vão além do emocional. Pq você não consegue aceitar a minha ajuda?"
+    },
+    {
+      question: "O meu resumo do meu amor por você, qual a certa?",
+      answers: ["PHP", "Python"],
+      correct: "JavaScript"
+    }
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  const quiz = document.getElementById('quiz');
+  const questionEl = document.getElementById('question');
+  const answersEl = document.getElementById('answers');
+
+  function showQuestion(index) {
+    const q = questions[index];
+    questionEl.textContent = q.question;
+    answersEl.innerHTML = "";
+
+    q.answers.forEach(answer => {
+      const btn = document.createElement('button');
+      btn.textContent = answer;
+      btn.onclick = () => checkAnswer(btn, answer);
+      answersEl.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(btn, selected) {
+    const correct = questions[current].correct;
+    const allButtons = document.querySelectorAll('.answers button');
+
+    allButtons.forEach(b => {
+      b.disabled = true;
+      if (b.textContent === correct) {
+        b.classList.add('correct');
+      }
+    });
+
+    if (selected === correct) {
+      score++;
+      console.log("✅ Acertou!");
+    } else {
+      console.log("❌ Errou!");
+    }
+
+    setTimeout(() => nextQuestion(), 800);
+  }
+
+  function nextQuestion() {
+    quiz.classList.add('fade-out');
+    setTimeout(() => {
+      current++;
+      if (current < questions.length) {
+        showQuestion(current);
+      } else {
+        questionEl.textContent = `Você acertou ${score} de ${questions.length} perguntas!`;
+        answersEl.innerHTML = "";
+      }
+      quiz.classList.remove('fade-out');
+    }, 500);
+  }
+
+  showQuestion(current);
+</script>
+
+</body>
+</html>
